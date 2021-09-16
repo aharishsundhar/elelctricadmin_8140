@@ -1,0 +1,7 @@
+{
+  "name": "elelctricadmin",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

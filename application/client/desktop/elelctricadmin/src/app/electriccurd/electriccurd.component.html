@@ -1,0 +1,48 @@
+<h2 class="screen-align">Electriccurd</h2>
+<div id="template-im6a" class="row">
+    <div id="template-ivv8" class="cell">
+        <label id="template-ig4a" class="label">name</label>
+        <input id="template-i612" placeholder="name" [(ngModel)]="curd.name"
+        [ngModelOptions]="{standalone: true}" class="input form-control" />
+    </div>
+    <div id="template-io8t" class="cell">
+        <label id="template-ifql" class="label">description</label>
+        <input id="template-i29w" placeholder="description"
+        [(ngModel)]="curd.description" [ngModelOptions]="{standalone: true}" class="input form-control"
+        />
+    </div>
+</div>
+<button id="template-iujf" class="button btn btn-primary">addrow</button>
+<div name="grid_template-i3pj" class="">
+    <div class="tableBg">
+        <table id="table" class="table table-bordered  table-striped table-curved"
+        data-show-header="true" data-pagination="true" data-id-field="name">
+            <thead class="table table-hover">
+                <tr>
+                    <th *ngFor="let column of columnDefs">{{column.headerName}}</th>
+                </tr>
+            </thead>
+            <tbody class="table-design" *ngIf="rowData.length==0">
+                <td style="text-align: center;" colspan="5">No Data Found</td>
+            </tbody>
+            <tbody class="table-design" *ngIf="rowData.length>0">
+                <tr *ngFor="let values of rowData | slice: (page-1) * paginationPageSize :(page-1) * paginationPageSize + paginationPageSize">
+                    <td>{{ values.name }}</td>
+                    <td>{{ values.description }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="bottomPage">
+        <div class="text-right">
+            <ngb-pagination class="d-flex justify-content-start" [(page)]="page" [maxSize]="5"
+            [rotate]="true" [pageSize]="paginationPageSize" [collectionSize]="rowData.length"
+            [boundaryLinks]="true"></ngb-pagination>
+        </div>
+    </div>
+    <div id="myGrid" class=""></div>
+</div>
+<div id="myGrid" class=""></div>
+<button id="template-iel0l" (click)="GpCreate()" class="button btn btn-primary">add</button>
+<button id="template-ib43g" (click)="GpUpdate()" class="button btn btn-primary">update</button>
+<button id="template-iw1kj" (click)="GpDelete()" class="button btn btn-primary">delete</button>
